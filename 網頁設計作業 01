@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的個人介紹</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f4f9; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        .skills { display: flex; gap: 10px; margin-top: 10px; }
+        .tag { background: #007bff; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.9em; }
+        .contact { margin-top: 20px; border-top: 1px solid #ccc; padding-top: 10px; }
+    </style>
+</head>
+<body>
 
+<div class="container">
+    <h1>你好，我是楊宜勛</h1>
+    <p>20歲,是個男大學生。</p>
+
+    <a href="https://youtu.be/dQw4w9WgXcQ?si=vf3kQZ-DR8EQPeHC">千萬別點開</a>
+    
+    <div class="contact">
+        <h3>聯絡我</h3>
+        <p>Email: yixun0204@gmail.com</p>
+    </div>
+</div>
+
+</body>
+</html>
