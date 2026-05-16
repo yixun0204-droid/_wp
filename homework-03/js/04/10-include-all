@@ -1,0 +1,33 @@
+const ledgerJSON = `[
+    { "detail": "午餐", "type": "Expense", "category": "Food", "amount": 120 },
+    { "detail": "薪水", "type": "Income", "category": "Salary", "amount": 40000 },
+    { "detail": "晚餐", "type": "Expense", "category": "Food", "amount": 250 },
+    { "detail": "捷運公車", "type": "Expense", "category": "Transport", "amount": 60 },
+    { "detail": "飲料", "type": "Expense", "category": "Food", "amount": 65 }
+]`;
+
+function getExpenseReport(jsonStr) {
+    const records = JSON.parse(jsonStr);
+    let totalExpense = 0;
+    let foodExpense = 0;
+    
+    for (let i = 0; i < records.length; i++) {
+        let item = records[i];
+        
+        if (item.type === "Expense") {
+            totalExpense += item.amount; 
+            
+            if (item.category === "Food") {
+                foodExpense += item.amount; 
+            }
+        }
+    }
+    
+    return {
+        "總支出": totalExpense,
+        "餐飲總支出": foodExpense
+    };
+}
+
+// 執行測試
+console.log(getExpenseReport(ledgerJSON));

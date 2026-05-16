@@ -1,0 +1,18 @@
+const rawData = `[
+    { "student": "張三", "books": ["JavaScript指南", "HTML入門"] },
+    { "student": "李四", "books": ["CSS美學"] },
+    { "student": "王五", "books": ["演算法演練", "Python基礎", "Vue3實戰"] }
+]`;
+
+function countTotalBooks(jsonData) {
+    const dataArray = JSON.parse(jsonData);
+    let totalBooks = 0;
+    
+    for (let i = 0; i < dataArray.length; i++) {
+        totalBooks += dataArray[i].books.length;
+    }
+    return totalBooks;
+}
+
+// 執行測試
+console.log(`班級總借閱量：${countTotalBooks(rawData)} 本`);

@@ -1,0 +1,17 @@
+function analyzeScores(scores) {
+    let passingTotal = 0; 
+    let failingCount = 0;  
+    
+    for (let i = 0; i < scores.length; i++) {
+        if (scores[i] >= 60) {
+            passingTotal += scores[i]; 
+        } else {
+            failingCount++; 
+        }
+    }
+    return { passingTotal, failingCount };
+}
+
+// 執行測試
+console.log(analyzeScores([55, 80, 40, 95, 60, 72]));
+console.log(analyzeScores([10, 20, 30]));

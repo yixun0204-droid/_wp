@@ -1,0 +1,17 @@
+function calculateBMI(weight, height) {
+    let heightInMeters = height / 100;
+    let bmi = weight / (heightInMeters * heightInMeters);
+    
+    if (bmi < 18.5) {
+        return `BMI: ${bmi.toFixed(1)}，體重過輕`;
+    } else if (bmi >= 18.5 && bmi < 24) {
+        return `BMI: ${bmi.toFixed(1)}，正常範圍`;
+    } else {
+        return `BMI: ${bmi.toFixed(1)}，異常過重`;
+    }
+}
+
+// 執行測試
+console.log(calculateBMI(65, 175));
+console.log(calculateBMI(50, 170));
+console.log(calculateBMI(90, 170));

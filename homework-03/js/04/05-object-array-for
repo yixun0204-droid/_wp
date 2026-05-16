@@ -1,0 +1,21 @@
+const cart = {
+    owner: "小明",
+    items: [
+        { name: "滑鼠", price: 590, quantity: 1 },
+        { name: "鍵盤", price: 1290, quantity: 2 },
+        { name: "HDMI 線", price: 250, quantity: 3 }
+    ]
+};
+
+function calculateTotal(shoppingCart) {
+    let total = 0;
+    let productList = shoppingCart.items; 
+    
+    for (let i = 0; i < productList.length; i++) {
+        total += productList[i].price * productList[i].quantity;
+    }
+    return total;
+}
+
+// 執行測試
+console.log(`${cart.owner} 的購物車總金額為：${calculateTotal(cart)} 元`);

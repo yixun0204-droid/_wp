@@ -1,0 +1,19 @@
+const answer = 42; 
+const playerGuesses = [15, 60, 35, 45, 42]; 
+let index = 0;
+let isCorrect = false;
+
+while (!isCorrect && index < playerGuesses.length) {
+    let guess = playerGuesses[index];
+    console.log(`玩家猜測：${guess}`);
+    
+    if (guess === answer) {
+        console.log("恭喜猜中了！");
+        isCorrect = true; 
+    } else if (guess > answer) {
+        console.log("太大了，再試一次。");
+    } else {
+        console.log("太小了 nudge。");
+    }
+    index++; 
+}

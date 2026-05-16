@@ -1,0 +1,19 @@
+const phoneBook = [
+    { name: "Alice", phone: "0911-111111" },
+    { name: "Bob", phone: "0922-222222" },
+    { name: "Charlie", phone: "0933-333333" }
+];
+
+function findPhone(contacts, targetName) {
+    for (let i = 0; i < contacts.length; i++) {
+        if (contacts[i].name.toLowerCase() === targetName.toLowerCase()) {
+            return contacts[i].phone; 
+        }
+    }
+    return "查無此人"; 
+}
+
+// 執行測試
+console.log(findPhone(phoneBook, "Bob"));
+console.log(findPhone(phoneBook, "alice")); 
+console.log(findPhone(phoneBook, "David"));

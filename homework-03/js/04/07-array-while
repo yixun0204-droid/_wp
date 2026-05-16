@@ -1,0 +1,18 @@
+function myReverse(arr) {
+    let left = 0;             
+    let right = arr.length - 1; 
+    
+    while (left < right) {
+        let temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+        
+        left++;
+        right--;
+    }
+    return arr;
+}
+
+// 執行測試
+console.log(myReverse(["A", "B", "C", "D"]));
+console.log(myReverse([1, 2, 3, 4, 5]));
