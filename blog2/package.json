@@ -1,0 +1,17 @@
+{
+  "name": "simple-blog",
+  "version": "1.0.0",
+  "description": "簡易網誌系統 - Node.js + SQLite",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-session": "^1.18.1",
+    "multer": "^2.1.1",
+    "sql.js": "^1.11.0"
+  }
+}

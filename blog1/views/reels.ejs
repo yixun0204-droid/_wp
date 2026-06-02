@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>短片 - 我的網誌</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="reels-page">
+  <nav class="navbar reels-nav">
+    <div class="nav-inner">
+      <h1 class="logo"><a href="/reels">🎬 短片</a></h1>
+      <div class="nav-links">
+        <a href="/" class="nav-link">首頁</a>
+        <a href="/upload" class="new-post-btn">上傳短片</a>
+      </div>
+    </div>
+  </nav>
+
+  <% if (videos.length === 0) { %>
+    <div class="empty" style="padding-top:80px;">
+      尚無短片，<a href="/upload">上傳一支吧！</a>
+    </div>
+  <% } else { %>
+    <div class="reels-container">
+      <% videos.forEach(v => { %>
+        <div class="reel-card">
+          <div class="reel-video-wrap">
+            <iframe src="<%= v.url.replace('watch?v=', 'embed/') %>?autoplay=0&controls=1&rel=0"
+              frameborder="0" allowfullscreen class="reel-video"></iframe>
+          </div>
+          <div class="reel-info">
+            <div class="reel-user">
+              <div class="avatar-sm" style="background:<%= v.avatar_color || '#0866ff' %>">
+                <%= v.username ? v.username[0] : '?' %>
+              </div>
+              <span class="reel-username"><%= v.username || '未知' %></span>
+            </div>
+            <h3 class="reel-title"><%= v.title %></h3>
+            <% if (v.description) { %>
+              <p class="reel-desc"><%= v.description %></p>
+            <% } %>
+            <span class="post-time"><%= new Date(v.created_at).toLocaleString('zh-TW') %></span>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  <% } %>
+</body>
+</html>

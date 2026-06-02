@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>個人檔案 - 我的網誌</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <h1 class="logo"><a href="/">我的網誌</a></h1>
+        <a href="/reels" class="nav-link">🎬 短片</a>
+      </div>
+      <div class="nav-right">
+        <div class="nav-user">
+          <% if (user.avatar_url) { %>
+            <img src="<%= user.avatar_url %>" class="avatar-sm avatar-img">
+          <% } else { %>
+            <div class="avatar-sm" style="background:<%= user.avatar_color %>"><%= user.username[0] %></div>
+          <% } %>
+          <span class="nav-username"><%= user.username %></span>
+          <form action="/logout" method="POST" style="display:inline">
+            <button type="submit" class="nav-logout">登出</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="feed">
+    <div class="fb-post">
+      <h2 class="form-title">個人檔案</h2>
+
+      <div class="profile-avatar-section">
+        <% if (profile.avatar_url) { %>
+          <img src="<%= profile.avatar_url %>" class="profile-avatar profile-avatar-img">
+        <% } else { %>
+          <div class="profile-avatar" style="background:<%= profile.avatar_color || '#0866ff' %>">
+            <%= profile.username[0] %>
+          </div>
+        <% } %>
+        <p class="profile-hint">上傳照片或選擇顏色</p>
+      </div>
+
+      <form action="/profile" method="POST" enctype="multipart/form-data" class="post-form">
+        <div>
+          <label for="username">使用者名稱</label>
+          <input type="text" id="username" name="username" value="<%= profile.username %>" required>
+        </div>
+
+        <div>
+          <label for="avatar">上傳頭像照片</label>
+          <input type="file" id="avatar" name="avatar" accept="image/*" class="file-input">
+        </div>
+
+        <div>
+          <label>頭像顏色</label>
+          <div class="color-picker">
+            <% ['#0866ff','#e41e3f','#25c151','#f5a623','#8b5cf6','#ec4899','#14b8a6','#f97316'].forEach(c => { %>
+              <label class="color-option">
+                <input type="radio" name="avatar_color" value="<%= c %>"
+                  <%= (profile.avatar_color === c) ? 'checked' : '' %>>
+                <span class="color-swatch" style="background:<%= c %>"></span>
+              </label>
+            <% }); %>
+          </div>
+        </div>
+
+        <% if (profile.avatar_url) { %>
+          <div>
+            <label class="checkbox-label">
+              <input type="checkbox" name="remove_avatar" value="1"> 移除目前照片
+            </label>
+          </div>
+        <% } %>
+
+        <div class="form-btns">
+          <button type="submit" class="fb-btn">儲存變更</button>
+          <a href="/" class="fb-btn fb-btn-cancel">取消</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.color-option input').forEach(el => {
+      el.addEventListener('change', function() {
+        const img = document.querySelector('.profile-avatar-img');
+        const div = document.querySelector('.profile-avatar:not(.profile-avatar-img)');
+        if (img) img.style.display = 'none';
+        let av = document.querySelector('.profile-avatar.profile-color-preview');
+        if (!av) {
+          av = document.createElement('div');
+          av.className = 'profile-avatar profile-color-preview';
+          av.textContent = '<%= profile.username[0] %>';
+          document.querySelector('.profile-avatar-section').appendChild(av);
+        }
+        av.style.background = this.value;
+        av.style.display = 'inline-flex';
+      });
+    });
+  </script>
+</body>
+</html>

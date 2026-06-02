@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Post</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 2rem; line-height: 1.6; color: #333; }
+    h1 { margin-bottom: 1rem; }
+    label { display: block; margin-bottom: 0.25rem; font-weight: 600; }
+    input, textarea { width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; font-family: inherit; }
+    textarea { min-height: 300px; }
+    .form-group { margin-bottom: 1rem; }
+    button { padding: 0.5rem 1.5rem; background: #2563eb; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; }
+    button:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <a href="/">&larr; Back</a>
+  <h1>New Post</h1>
+  <form action="/post" method="POST">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" required autofocus>
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea name="content" id="content" required></textarea>
+    </div>
+    <button type="submit">Create</button>
+  </form>
+</body>
+</html>

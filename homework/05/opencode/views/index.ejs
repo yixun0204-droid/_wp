@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Blog</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 2rem; line-height: 1.6; color: #333; }
+    h1 { margin-bottom: 1.5rem; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .post-list { list-style: none; }
+    .post-list li { padding: 1rem 0; border-bottom: 1px solid #eee; }
+    .post-list li:last-child { border-bottom: none; }
+    .post-list .date { color: #888; font-size: 0.85rem; }
+    .create-btn { display: inline-block; margin-bottom: 1rem; padding: 0.5rem 1rem; background: #2563eb; color: #fff; border-radius: 6px; }
+    .create-btn:hover { background: #1d4ed8; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <h1>Simple Blog</h1>
+  <a href="/post/new" class="create-btn">+ New Post</a>
+  <ul class="post-list">
+    <% posts.forEach(post => { %>
+      <li>
+        <a href="/post/<%= post.id %>"><%= post.title %></a>
+        <div class="date"><%= post.created_at %></div>
+      </li>
+    <% }) %>
+    <% if (posts.length === 0) { %>
+      <li>No posts yet.</li>
+    <% } %>
+  </ul>
+</body>
+</html>
