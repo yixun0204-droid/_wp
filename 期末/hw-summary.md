@@ -12,7 +12,7 @@
 
 ## homework-01 — HTML 個人介紹頁
 
-**路徑**：`homework-01/html`
+**路徑**：`[homework-01/html](https://github.com/yixun0204-droid/_wp/tree/master/homework-01)`
 
 **說明**：用 HTML + CSS 建立個人介紹頁，包含姓名、年齡、連結、聯絡資訊。練習基礎 HTML 結構與 inline CSS 樣式設計。
 
