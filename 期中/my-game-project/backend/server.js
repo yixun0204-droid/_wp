@@ -8,7 +8,7 @@ app.use(express.json());
 
 // 修正 1：請將下面的 <db_password> 替換成你在 MongoDB Atlas 設定的「資料庫使用者密碼」
 // 修正 2：在網址最後面加上你的資料庫名稱（例如 gameDB），否則資料會被隨機塞進預設的 test 資料庫中
-const dbURI = 'mongodb+srv://yixun0204_db_user:<db_password>@cluster0.ltsgs4t.mongodb.net/gameDB?retryWrites=true&w=majority&appName=Cluster0';
+const dbURI = 'mongodb+srv://yixun0204_db_user:<db_password>@cluster0.ltsgs4t.mongodb.net/?appName=Cluster0';
 
 mongoose.connect(dbURI)
   .then(() => console.log("雲端 MongoDB Atlas 資料庫連線成功！"))
